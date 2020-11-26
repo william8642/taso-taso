@@ -38,8 +38,8 @@ function App() {
   //設定登入登出的狀態
   const [isAuth, setisAuth] = useState()
 
-  const [cartItems, setCartItems] = useState(0)
-  const [ok, setok] = useState(false)
+  // const [cartItems, setCartItems] = useState(0)
+  // const [ok, setok] = useState(false)
 
   useEffect(() => {
     const memberAuth = localStorage.getItem('memberLogInInfo')
@@ -50,16 +50,16 @@ function App() {
   }
   }, [])
 
-  useEffect(() => {
-    const cartItemsLS = JSON.parse(localStorage.getItem('cart'))
-    if (cartItemsLS === null) {
-      setCartItems(0)
-      setok(!ok)
-    } else {
-      setCartItems(cartItemsLS.length)
-      setok(!ok)
-    }
-  }, [ok])
+  // useEffect(() => {
+  //   const cartItemsLS = JSON.parse(localStorage.getItem('cart'))
+  //   if (cartItemsLS === null) {
+  //     setCartItems(0)
+  //     setok(!ok)
+  //   } else {
+  //     setCartItems(cartItemsLS.length)
+  //     setok(!ok)
+  //   }
+  // }, [ok])
 
   return (
     <Router>
@@ -69,7 +69,7 @@ function App() {
             <SellerBack />
           </Route>
         </Switch>
-        <Navbar isAuth={isAuth} setisAuth={setisAuth} cartItems={cartItems} setCartItems={setCartItems}  />
+        <Navbar isAuth={isAuth} setisAuth={setisAuth} />
         <ScrollToTop>
           <Switch>
             <Route exact path="/">
